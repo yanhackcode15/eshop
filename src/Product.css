@@ -1,0 +1,33 @@
+body * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.product__image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: auto; 
+}
+.product, .product__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product__info {
+    margin-bottom: 10px;
+}
+
+.product__addToCart {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #ff8f00;
+    margin: auto; 
+    margin-top: 20px;
+}
+img {
+    margin-bottom: 20px;
+}

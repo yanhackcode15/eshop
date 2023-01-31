@@ -1,0 +1,11 @@
+img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.checkout__layout {
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 20px;
+}

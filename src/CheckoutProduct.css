@@ -1,0 +1,16 @@
+.checkoutProduct {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+}
+
+.checkoutProduct__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 5px;
+}
+.checkoutProduct__image {
+    width: 300px;
+    margin-right: 50px;
+}
