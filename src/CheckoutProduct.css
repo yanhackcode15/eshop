@@ -5,6 +5,7 @@
 }
 
 .checkoutProduct__info{
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -13,4 +14,5 @@
 .checkoutProduct__image {
     width: 300px;
     margin-right: 50px;
+    object-fit: contain;
 }

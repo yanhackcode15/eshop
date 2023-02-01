@@ -1,0 +1,22 @@
+body * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.subtotal{
+    background-color: white;
+    margin-left: 20px;
+    padding: 20px;
+    height: 150px;
+}
+
+.subtotal__checkout {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #ff8f00;
+    margin: auto; 
+    margin-top: 20px;
+}

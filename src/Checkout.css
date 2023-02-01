@@ -1,3 +1,6 @@
+.checkout {
+    background-color: #EAEDED;
+}
 img {
     height: 300px;
     width: 100%;
@@ -8,4 +11,18 @@ img {
     display: flex;
     /* justify-content: space-between; */
     margin: 20px;
+}
+.checkout__title {
+    margin: 20px;
+}
+
+.checkout__left {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.checkout__right {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
 }

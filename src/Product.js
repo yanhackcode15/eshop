@@ -1,5 +1,4 @@
 import React from 'react'
-import productImage1 from './image/product_image_1.jpg'
 import './Product.css'
 import {useStateValue} from './StateProvider'
 
@@ -10,7 +9,7 @@ export default function Product({product}) {
   if(!product){
     return (<div>Loading...</div>)
   }
-  const {price, title, rating} = product; //?? is for undefined
+  const {price, title, rating, image} = product; //?? is for undefined
   // const {price, title, rating} = product??{}; //?? is for undefined
   const addToBasket=()=>{
     dispatch({
@@ -30,7 +29,7 @@ export default function Product({product}) {
             </div>
         </div>
         
-        <img className="product__image" src={productImage1}/>
+        <img className="product__image" src={image}/>
         <button className="product__addToCart" onClick={addToBasket}>Add to Cart</button>
     </div>
   )
