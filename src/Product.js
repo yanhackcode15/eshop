@@ -4,20 +4,19 @@ import {useStateValue} from './StateProvider'
 
 export default function Product({product}) {
   
-  const [{basket}, dispatch] = useStateValue();
+  const {products, basketStateArray} = useStateValue()
+  const [{basket}, dispatch] = basketStateArray; 
 
   if(!product){
     return (<div>Loading...</div>)
   }
-  const {price, title, rating, image} = product; //?? is for undefined
+  const {price, title, rating, image, id} = product; //?? is for undefined
   // const {price, title, rating} = product??{}; //?? is for undefined
   const addToBasket=()=>{
     dispatch({
       type: "ADD_TO_BASKET",
-      item: product
+      item: {[id]: 1}
     })
-
-    
   }
   return (
     <div className="product">

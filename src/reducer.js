@@ -1,13 +1,19 @@
 export const initialState = {
-    basket: []
+    basket: new Map()
 }
 
 const reducer = (state, action)=>{
+    let productId = Object.keys(action.item)[0];
     switch(action.type) {
         case "ADD_TO_BASKET": 
-            return {
-                ...state,
-                basket: [...state.basket, action.item]
+            {
+                
+                let newBasket = new Map(state.basket);
+                newBasket.set(productId, (newBasket.get(productId)??0)+action.item[productId])
+                return {
+                    ...state,
+                    basket: newBasket
+                }
             }
             
     }

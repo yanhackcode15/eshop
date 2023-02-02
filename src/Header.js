@@ -7,7 +7,18 @@ import {Link} from "react-router-dom"
 import {useStateValue} from './StateProvider'
 
 function Header(){
-    const [{basket}, dispatch] = useStateValue();
+    const {basketStateArray} = useStateValue()
+    const {basket} = basketStateArray[0]; 
+    const basketItemCount = ()=>{
+        if (!basket.size){
+            return 0;
+        }
+        let size = 0;
+        for (const [key, value] of basket) {
+            size=size + value;
+        }
+        return size; 
+    }
     return (
         <div className="header">
             <div className='header__logo'>
@@ -31,9 +42,7 @@ function Header(){
                 <div className='nav__item'>
                     <Link to="/checkout">
                         <ShoppingBasketIcon className="itemBasket" /></Link>
-                        <Link to="/checkout"><span className='nav__itemLineTwo nav__basketCount'>{basket.length}</span></Link>
-                    
-                
+                        <Link to="/checkout"><span className='nav__itemLineTwo nav__basketCount'>{basketItemCount()}</span></Link>
                 </div>
                 
 
