@@ -7,11 +7,18 @@ import Select from '@mui/material/Select';
 import { useStateValue } from "./StateProvider";
 
 export default function CheckoutProduct({product, quantity}){
+  //sync quanitty state with the basket state
+
   const [quantityState, setQuantity] = React.useState(quantity);
   const {products, basketStateArray} = useStateValue()
   const [{basket}, dispatch] = basketStateArray; 
   const handleChange = (event) => {
     setQuantity(event.target.value);
+    dispatch({
+      type: "UPDATE_BASKET",
+      item: {[product.id]: quantityState}
+    })
+  
   };
 
   if(!product){
@@ -20,12 +27,6 @@ export default function CheckoutProduct({product, quantity}){
   const {price, title, rating, image} = product;
   
 
-  const updateBasket=()=>{
-    dispatch({
-      type: "UPDATE_BASKET",
-      item: product
-    })
-  }
   return (
     <div className="checkoutProduct">
         <img className="checkoutProduct__image" src={image}/>
