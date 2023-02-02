@@ -4,21 +4,22 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
 import {Link} from "react-router-dom"
-import {useStateValue} from './StateProvider'
+import {basketItemCount, useStateValue} from './StateProvider'
+
 
 function Header(){
     const {basketStateArray} = useStateValue()
     const {basket} = basketStateArray[0]; 
-    const basketItemCount = ()=>{
-        if (!basket.size){
-            return 0;
-        }
-        let size = 0;
-        for (const [key, value] of basket) {
-            size=size + value;
-        }
-        return size; 
-    }
+    // const basketItemCount = ()=>{
+    //     if (!basket.size){
+    //         return 0;
+    //     }
+    //     let size = 0;
+    //     for (const [key, value] of basket) {
+    //         size=size + value;
+    //     }
+    //     return size; 
+    // }
     return (
         <div className="header">
             <div className='header__logo'>
@@ -42,7 +43,7 @@ function Header(){
                 <div className='nav__item'>
                     <Link to="/checkout">
                         <ShoppingBasketIcon className="itemBasket" /></Link>
-                        <Link to="/checkout"><span className='nav__itemLineTwo nav__basketCount'>{basketItemCount()}</span></Link>
+                        <Link to="/checkout"><span className='nav__itemLineTwo nav__basketCount'>{basketItemCount(basket)}</span></Link>
                 </div>
                 
 

@@ -22,3 +22,14 @@ export const StateProvider = ({reducer, initialState, children})=>{
 
 export const useStateValue = ()=> useContext(StateContext);
 
+export const basketItemCount = (basket)=>{
+    if (!basket.size){
+        return 0;
+    }
+    let size = 0;
+    for (const [key, value] of basket) {
+        size=size + value;
+    }
+    return size; 
+}
+
