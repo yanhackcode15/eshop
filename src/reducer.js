@@ -17,6 +17,13 @@ const reducer = (state, action)=>{
         case "UPDATE_BASKET":
             {
                 let newBasket = new Map(state.basket);
+                if(!action.item[productId]){
+                    newBasket.delete(productId);
+                    return {
+                        ...state,
+                        basket: newBasket
+                    }   
+                }
                 newBasket.set(productId, action.item[productId])
                 return {
                     ...state,

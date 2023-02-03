@@ -3,9 +3,9 @@ import './Subtotal.css'
 import {basketItemCount, useStateValue} from './StateProvider'
 import numeral from 'numeral';
 
-export default function() {
+export default function Subtotal () {
   const {products, basketStateArray} = useStateValue() //provider value is an ojbect with two state variables, products and basket, basket uses reducer hook,
-  const [{basket}, dispatch] = basketStateArray; 
+  const {basket} = basketStateArray[0]; 
   let total = 0;
   for (let [productId, quantity] of basket) {
     total+=products[productId].price * quantity

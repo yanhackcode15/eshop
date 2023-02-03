@@ -11,9 +11,7 @@ import reducer, {initialState} from './reducer'
 
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
+  RouterProvider
 } from "react-router-dom";
 
 const router = createBrowserRouter([

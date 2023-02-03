@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import { useStateValue } from "./StateProvider";
 
 export default function CheckoutProduct({product, quantity}){
-  //sync quanitty state with the basket state
+  //if 0, remove the product
 
   const [quantityState, setQuantity] = React.useState(quantity);
   const {products, basketStateArray} = useStateValue()
@@ -16,7 +16,7 @@ export default function CheckoutProduct({product, quantity}){
     setQuantity(event.target.value);
     dispatch({
       type: "UPDATE_BASKET",
-      item: {[product.id]: quantityState}
+      item: {[product.id]: event.target.value}
     })
   
   };
