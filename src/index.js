@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Home'
 import Header from './Header'
+import Login from './Login'
 import Checkout from './Checkout'
 import { StateProvider } from './StateProvider';
 import reducer, {initialState} from './reducer'
@@ -16,7 +17,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <div>
         <Header />
@@ -25,13 +26,21 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "checkout",
+    path: 'checkout',
     element: 
       <div>
         <Header />
         <Checkout />
       </div>,
   },
+  {
+    path: 'login',
+    element: 
+    <div>
+      <Header />
+      <Login />
+    </div>
+  }
 ]);
 
 

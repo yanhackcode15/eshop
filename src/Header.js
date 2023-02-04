@@ -10,16 +10,7 @@ import {basketItemCount, useStateValue} from './StateProvider'
 function Header(){
     const {basketStateArray} = useStateValue()
     const {basket} = basketStateArray[0]; 
-    // const basketItemCount = ()=>{
-    //     if (!basket.size){
-    //         return 0;
-    //     }
-    //     let size = 0;
-    //     for (const [key, value] of basket) {
-    //         size=size + value;
-    //     }
-    //     return size; 
-    // }
+  
     return (
         <div className="header">
             <div className='header__logo'>
@@ -33,7 +24,7 @@ function Header(){
             <div className='header__nav'>
                 <div className='nav__item'>
                     <span className='nav__itemLineOne'>Hello guest</span>
-                    <span className='nav__itemLineTwo'>Sign In</span>
+                    <Link to='/login'><span className='nav__itemLineTwo'>Sign In</span></Link>
                 </div>
                 <div className='nav__item'>
                     <span className='nav__itemLineOne'>Your</span>
