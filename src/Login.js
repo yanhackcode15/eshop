@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import {loginUser, createUser} from './Firebase'
+import './Login.css'
 
 
 const Login = () => {
@@ -29,18 +30,18 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="login__page">
             <div className='login__logo'>
                 <Link to="/"><StorefrontIcon className="header__logoImage" fontSize="large" /></Link>
                 <Link to="/"><h2 className="header__logoTitle">eShop</h2></Link>
             </div>
             <div className='login__container'>
                 <h1>Sign-in</h1>
-                <form>
-                    <h5>Email</h5>
+                <form className="form__login">
+                    <h5 className='email'>Email</h5>
                     <input type='text' value={email} onChange={(e)=>setEmail(e.target.value)}/>
 
-                    <h5>Password</h5>
+                    <h5 className='password'>Password</h5>
                     <input type='text' value={password} onChange={(e)=>setPassword(e.target.value)}/>
 
                     <button type='submit' className='login___signInButton' onClick={signIn}>Sign In</button>

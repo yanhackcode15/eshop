@@ -1,0 +1,54 @@
+.login__logo >.header__logoTitle {
+    background-color: white;
+}
+.login__page {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.login__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.login__container > *, .form__login > * {
+    margin: 5px;
+}
+
+.form__login {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.login___signInButton {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #ff8f00;
+    margin: auto; 
+    margin-top: 20px;
+}
+
+.login__newAccount {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: black;
+    color: white;
+    margin: auto; 
+    margin-top: 20px;
+}
