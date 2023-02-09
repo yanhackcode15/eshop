@@ -41,10 +41,10 @@ server.post('/signup', (req, res)=>{
     createUserWithEmailAndPassword(auth, email, password)
     .then(auth=>{
         if(auth){
-            res.status(200).send('ok')
+            return res.status(200).end()
         }
     })
-    .catch(e=>res.status(406).send(e))
+    .catch(e=>res.status(406).send(e.code))
 })
 
 server.post('/signin', async (req, res)=>{
@@ -52,14 +52,11 @@ server.post('/signin', async (req, res)=>{
     const email = req.body.email;
     const password = req.body.password;
 
-    console.log('body', req.body)
     signInWithEmailAndPassword(auth, email, password)
     .then(auth=>{
-        console.log('auth')
-        res.status(200).send('ok')
-    }
-        )
-    .catch(e=>res.status(406).send(e))
+        return res.status(200).end()
+    })
+    .catch(e=>res.status(406).send(e.code))
 })
 
 

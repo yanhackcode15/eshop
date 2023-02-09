@@ -24,11 +24,23 @@ const Login = () => {
     
         fetch(request)
         .then(res=>{
-            return res.text()
+            let code = res.status
+            if (code===200){
+                navigate('/');
+            }
+            else if (code===406)
+            {
+                return res.text()
+                throw new Error(`sign in didn't work! ${code}` );     
+            }
+            else {
+                throw new Error("sign in didn't work!"); 
+            }
+
         })
-        .then(text=>{
-            console.log(text)
-            navigate('/')
+        .then(msg=>{
+            if (msg&&!!msg.length){
+                throw new Error(`Sign up didn't work ${msg}`)}     
         })
         .catch(error=>alert(error.message))
  
@@ -48,12 +60,23 @@ const Login = () => {
     
         fetch(request)
         .then(res=>{
-            return res.text()
+            let code = res.status
+            if (code===200){
+                navigate('/');
+            }
+            else if (code===406)
+            {
+                return res.text()
+            }
+            else {
+                throw new Error("sign up didn't work!"); 
+            }
         })
-        .then(text=>{
-            console.log(text)
-            navigate('/')
-        })
+        .then(msg=>{
+            if (msg&&!!msg.length){
+                throw new Error(`Sign up didn't work ${msg}`)}     
+            }
+        )
         .catch(error=>alert(error.message))
         
     }
