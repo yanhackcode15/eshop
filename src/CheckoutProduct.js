@@ -4,7 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useStateValue } from "./StateProvider.mjs";
+import { useStateValue } from "./StateProvider.js";
 
 export default function CheckoutProduct({product, quantity}){
   

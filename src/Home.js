@@ -1,8 +1,8 @@
 import React from 'react'
 import homeImage from './image/home_page_image.jpg'
 import './Home.css';
-import Product from './Product.mjs'
-import {useStateValue} from './StateProvider.mjs'
+import Product from './Product.js'
+import {useStateValue} from './StateProvider.js'
 
 export default function Home() {
   // const [products, setProducts] = React.useState([])

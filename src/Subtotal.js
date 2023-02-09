@@ -1,6 +1,6 @@
 import React from 'react'
 import './Subtotal.css'
-import {basketItemCount, useStateValue} from './StateProvider.mjs'
+import {basketItemCount, useStateValue} from './StateProvider.js'
 import numeral from 'numeral';
 
 export default function Subtotal () {

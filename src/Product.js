@@ -1,6 +1,6 @@
 import React from 'react'
 import './Product.css'
-import {useStateValue} from './StateProvider.mjs'
+import {useStateValue} from './StateProvider.js'
 
 export default function Product({product}) {
   
