@@ -47,10 +47,12 @@ server.post('/signup', (req, res)=>{
     .catch(e=>res.status(406).send(e))
 })
 
-server.post('/signin', (req, res)=>{
+server.post('/signin', async (req, res)=>{
   
     const email = req.body.email;
     const password = req.body.password;
+
+    console.log('body', req.body)
     signInWithEmailAndPassword(auth, email, password)
     .then(auth=>{
         console.log('auth')
