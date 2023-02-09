@@ -4,10 +4,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "./StateProvider.mjs";
 
 export default function CheckoutProduct({product, quantity}){
-  //if 0, remove the product
+  
 
   const [quantityState, setQuantity] = React.useState(quantity);
   const {products, basketStateArray} = useStateValue()

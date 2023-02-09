@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import {loginUser, createUser} from './Firebase'
+import {loginUser, createUser} from './Firebase.mjs'
 import './Login.css'
 
 

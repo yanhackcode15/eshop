@@ -2,9 +2,9 @@
 import React from 'react'
 import './Checkout.css'
 import CheckoutImage from './image/checkout_bg.jpg'
-import CheckoutProduct from './CheckoutProduct'
-import Subtotal from './Subtotal'
-import { useStateValue } from './StateProvider'
+import CheckoutProduct from './CheckoutProduct.mjs'
+import Subtotal from './Subtotal.mjs'
+import { useStateValue } from './StateProvider.mjs'
 export default () => {
   const {products, basketStateArray} = useStateValue()
   const [{basket}, dispatch] = basketStateArray; 

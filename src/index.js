@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './Home'
-import Header from './Header'
-import Login from './Login'
-import Checkout from './Checkout'
-import { StateProvider } from './StateProvider';
-import reducer, {initialState} from './reducer'
+import Home from './Home.mjs'
+import Header from './Header.mjs'
+import Login from './Login.mjs'
+import Checkout from './Checkout.mjs'
+import { StateProvider } from './StateProvider.mjs';
+import reducer, {initialState} from './reducer.mjs'
 
 // import reportWebVitals from './reportWebVitals';
 
