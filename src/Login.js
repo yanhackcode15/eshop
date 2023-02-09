@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import {loginUser, createUser} from './Firebase'
+// import {loginUser, createUser} from './Firebase'
 import './Login.css'
 
 
@@ -11,22 +11,51 @@ const Login = () => {
     const [password, setPassword] = React.useState('')
     const signIn = (e)=>{
         e.preventDefault();
-        loginUser(email, password)
-        .then(auth=>{
+
+        const request = new Request(
+            'http://localhost:8000/signin', 
+
+            {
+                method: 'POST', 
+                body: JSON.stringify({email: email, password: password}),
+                headers: { "Content-Type": "application/json" }
+            })
+
+    
+        fetch(request)
+        .then(res=>{
+            return res.text()
+        })
+        .then(text=>{
+            console.log(text)
             navigate('/')
         })
-        .catch(error=>alert(error.message)) 
+        .catch(error=>alert(error.message))
+ 
     }
 
     const register = (e)=>{
         e.preventDefault();
-        createUser(email, password)
-        .then(auth=>{
-            if(auth){
-              navigate('/');
-            }
+        const request = new Request(
+            'http://localhost:8000/signup', 
+
+            {
+                method: 'POST', 
+                body: JSON.stringify({email: email, password: password}),
+                headers: { "Content-Type": "application/json" }
+            })
+
+    
+        fetch(request)
+        .then(res=>{
+            return res.text()
+        })
+        .then(text=>{
+            console.log(text)
+            navigate('/')
         })
         .catch(error=>alert(error.message))
+        
     }
 
     return (
