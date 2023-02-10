@@ -57,8 +57,7 @@ server.post('/signin', async (req, res)=>{
     .catch(e=>res.status(406).send(e.code))
 })
 
-
-server.listen(PORT, ()=>console.log('App running on port, ', process.env.PORT||8000))
+server.listen(process.env.PORT||8000, ()=>console.log('App running on port, ', process.env.PORT||8000))
 
 
 
