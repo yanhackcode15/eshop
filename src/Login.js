@@ -4,7 +4,10 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 // import {loginUser, createUser} from './Firebase'
 import './Login.css'
 
+const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
+const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
 
+console.log(signInPath)
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
@@ -13,12 +16,17 @@ const Login = () => {
         e.preventDefault();
 
         const request = new Request(
-            'http://localhost:8000/signin', 
-
+            signInPath, 
             {
                 method: 'POST', 
                 body: JSON.stringify({email: email, password: password}),
-                headers: { "Content-Type": "application/json" }
+                headers: { 
+                    "Access-Control-Allow-Origin": "http://localhost:3000",
+                    // "Access-Control-Allow-Origin": '*',
+                    "Access-Control-Allow-Methods": "GET, OPTIONS, POST, PUT",
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                    "Content-Type": "application/json" 
+                }
             })
 
     

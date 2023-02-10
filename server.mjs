@@ -1,7 +1,5 @@
-const PORT = 8000
 import express from 'express'
 import cors from 'cors'
-// import axios from 'axios'
 import bodyParser from 'body-parser'
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
@@ -60,7 +58,7 @@ server.post('/signin', async (req, res)=>{
 })
 
 
-server.listen(PORT, ()=>console.log('App running on port, ', PORT))
+server.listen(PORT, ()=>console.log('App running on port, ', process.env.PORT||8000))
 
 
 
