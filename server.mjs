@@ -1,4 +1,4 @@
-const port = process.env.port||8000
+const port = process.env.PORT||8000
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -58,21 +58,9 @@ server.post('/signin', async (req, res)=>{
     .catch(e=>res.status(406).send(e.code))
 })
 
+console.log(port)
 server.listen(port, ()=>console.log('App running on port, ', port))
 
 
-
-
-
-
-
-const createUser=(email, password)=>{
-  return 
-}
-const loginUser=(email, password)=>{
-  return 
-}
-
-export {createUser, loginUser}
 
 
