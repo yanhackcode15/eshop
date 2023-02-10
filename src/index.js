@@ -13,6 +13,8 @@ import {
   RouterProvider
 } from "react-router-dom";
 
+const ErrorPage = () => <div>Sorry, you got an error</div>;
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -65,4 +67,3 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-const ErrorPage = () => <div>Sorry, you got an error</div>;

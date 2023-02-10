@@ -7,7 +7,6 @@ import './Login.css'
 const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
 const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
 
-console.log(signInPath)
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
