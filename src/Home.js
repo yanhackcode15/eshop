@@ -5,6 +5,7 @@ import Product from './Product.js'
 import {useStateValue} from './StateProvider.js'
 
 export default function Home() {
+  console.log('render Home');
   // const [products, setProducts] = React.useState([])
   // const [state, dispatch] = useStateValue();
   // React.useEffect(()=>{

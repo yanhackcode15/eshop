@@ -10,6 +10,7 @@ export const StateProvider = ({reducer, initialState, children})=>{
                     json.forEach(product=>productsObject[product.id]=product)
                     setProducts(productsObject)
                 })
+                .catch(err => console.error('fakestoreapi error', err))
       }, [])
 
     const basketStateArray = useReducer(reducer, initialState);

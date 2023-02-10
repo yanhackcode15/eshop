@@ -40,6 +40,13 @@ const router = createBrowserRouter([
       <Header />
       <Login />
     </div>
+  },
+  {
+    path: '*',
+    element: 
+    <div>
+      <h3>Woah, that's a 404!</h3>
+    </div>
   }
 ]);
 
