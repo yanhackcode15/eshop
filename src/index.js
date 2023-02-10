@@ -7,39 +7,44 @@ import Login from './Login.js'
 import Checkout from './Checkout.js'
 import { StateProvider } from './StateProvider.js';
 import reducer, {initialState} from './reducer.js'
-
-// import reportWebVitals from './reportWebVitals';
-
 import {
   createBrowserRouter,
+  redirect,
   RouterProvider
 } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: '/',
+    loader: redirect('/eshop/'),
+  },
+  {
+    path: '/eshop/',
     element: (
       <div>
         <Header />
         <Home />
       </div>
     ),
+    errorElement: <ErrorPage />
   },
   {
-    path: 'checkout',
+    path: '/eshop/checkout',
     element: 
       <div>
         <Header />
         <Checkout />
       </div>,
+      errorElement: <ErrorPage />
   },
   {
-    path: 'login',
+    path: '/eshop/login',
     element: 
     <div>
       <Header />
       <Login />
-    </div>
+    </div>,
+    errorElement: <ErrorPage />
   },
   {
     path: '*',
@@ -66,3 +71,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
+
+const ErrorPage = () => <div>Sorry, you got an error</div>;
