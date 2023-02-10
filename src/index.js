@@ -16,10 +16,6 @@ import {
 const router = createBrowserRouter([
   {
     path: '/',
-    loader: redirect('/eshop/'),
-  },
-  {
-    path: '/eshop/',
     element: (
       <div>
         <Header />
@@ -29,7 +25,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: '/eshop/checkout',
+    path: '/checkout',
     element: 
       <div>
         <Header />
@@ -38,7 +34,7 @@ const router = createBrowserRouter([
       errorElement: <ErrorPage />
   },
   {
-    path: '/eshop/login',
+    path: '/login',
     element: 
     <div>
       <Header />
@@ -48,12 +44,9 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: 
-    <div>
-      <h3>Woah, that's a 404!</h3>
-    </div>
+    loader: redirect('/eshop')
   }
-]);
+], {basename: '/eshop'});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
