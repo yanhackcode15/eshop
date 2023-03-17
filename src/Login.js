@@ -20,8 +20,7 @@ const Login = () => {
                 method: 'POST', 
                 body: JSON.stringify({email: email, password: password}),
                 headers: { 
-                    "Access-Control-Allow-Origin": "http://localhost:3000",
-                    // "Access-Control-Allow-Origin": '*',
+                    "Access-Control-Allow-Origin": signInPath,
                     "Access-Control-Allow-Methods": "GET, OPTIONS, POST, PUT",
                     "Access-Control-Allow-Headers": "Content-Type, Authorization",
                     "Content-Type": "application/json" 
@@ -56,7 +55,7 @@ const Login = () => {
     const register = (e)=>{
         e.preventDefault();
         const request = new Request(
-            'http://localhost:8000/signup', 
+            signUpPath, 
 
             {
                 method: 'POST', 
