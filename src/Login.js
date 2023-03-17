@@ -32,11 +32,12 @@ const Login = () => {
         .then(res=>{
             let code = res.status
             if (code===200){
+                console.log('you are signed in');
                 navigate('/');
             }
             else if (code===406)
             {
-                return res.text()
+                // return res.text()
                 throw new Error(`sign in didn't work! ${code}` );     
             }
             else {
