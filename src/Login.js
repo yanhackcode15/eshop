@@ -5,10 +5,12 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import './Login.css'
 import { useStateValue } from './StateProvider';
 
-// const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
-// const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
-const signUpPath = process.env.REACT_APP_SERVER_URL_DEV+'/signup'
-const signInPath = process.env.REACT_APP_SERVER_URL_DEV+'/signin'
+//production server url
+const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
+const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
+//dev server url
+// const signUpPath = process.env.REACT_APP_SERVER_URL_DEV+'/signup'
+// const signInPath = process.env.REACT_APP_SERVER_URL_DEV+'/signin'
 
 const Login = () => {
     const navigate = useNavigate();
