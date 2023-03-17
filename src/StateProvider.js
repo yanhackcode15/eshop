@@ -2,6 +2,8 @@ import React, {createContext, useContext, useReducer} from 'react'
 export const StateContext = createContext();
 export const StateProvider = ({reducer, initialState, children})=>{
     const [products, setProducts] = React.useState({});
+    const [signedInStatus, setSignedInStatus] = React.useState(false)
+    const [firstName, setFirstName] = React.useState('')
     React.useEffect(()=>{
         fetch('https://fakestoreapi.com/products?limit=10')
                 .then(res=>res.json())
@@ -16,7 +18,7 @@ export const StateProvider = ({reducer, initialState, children})=>{
     const basketStateArray = useReducer(reducer, initialState);
     //provider value is an ojbect with two state variables, products and basket, basket uses reducer hook,
     return (
-    <StateContext.Provider value={{products, basketStateArray}} >
+    <StateContext.Provider value={{products, basketStateArray, signedInStatus, setSignedInStatus, firstName, setFirstName}} >
         {children}
     </StateContext.Provider>
 )}

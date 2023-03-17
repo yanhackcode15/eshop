@@ -8,9 +8,27 @@ import {basketItemCount, useStateValue} from './StateProvider.js'
 
 
 function Header(){
-    const {basketStateArray} = useStateValue()
+    const {basketStateArray, signedInStatus, firstName } = useStateValue()
     const {basket} = basketStateArray[0]; 
-  
+    //get the userNmae state from context
+    const renderHelloGuest = () =>{
+        if (signedInStatus) { //signed in
+            return (
+                <div className='nav__item'>
+                    <span className='nav__itemLineOne'>Hello {firstName} </span>
+                    <Link to='/login'><span className='nav__itemLineTwo'>Sign Out</span></Link>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className='nav__item'>
+                    <span className='nav__itemLineOne'>Hello guest</span>
+                    <Link to='/login'><span className='nav__itemLineTwo'>Sign In</span></Link>
+                </div>
+            )
+        }
+    }
     return (
         <div className="header">
             <div className='header__logo'>
@@ -26,10 +44,8 @@ function Header(){
                 </div>
             </div>
             <div className='header__nav'>
-                <div className='nav__item'>
-                    <span className='nav__itemLineOne'>Hello guest</span>
-                    <Link to='/login'><span className='nav__itemLineTwo'>Sign In</span></Link>
-                </div>
+                {renderHelloGuest()}
+                
                 <div className='nav__item'>
                     <span className='nav__itemLineOne'>Your</span>
                     <span className='nav__itemLineTwo'>Shop</span>

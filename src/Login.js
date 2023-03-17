@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import StorefrontIcon from '@mui/icons-material/Storefront';
 // import {loginUser, createUser} from './Firebase'
 import './Login.css'
+import { useStateValue } from './StateProvider';
 
 // const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
 // const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
@@ -12,9 +13,8 @@ const signInPath = process.env.REACT_APP_SERVER_URL_DEV+'/signin'
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
-    const [firstName, setFirstName] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const [signedIn, setSignedIn] = React.useState(false)
+    const {signedInStatus, setSignedInStatus, firstName, setFirstName} = useStateValue();
     const signIn = (e)=>{
         e.preventDefault();
 
@@ -37,7 +37,7 @@ const Login = () => {
             let code = res.status
             if (code===200){
                 console.log('you are signed in');
-                setSignedIn(true)
+                setSignedInStatus(true)
                 // navigate('/');
             }
             else if (code===406)
@@ -75,7 +75,7 @@ const Login = () => {
             let code = res.status
             if (code===200){
                 console.log('you are signed up');
-                setSignedIn(true)
+                setSignedInStatus(true)
                 // navigate('/');
             }
             else if (code===406)
@@ -96,11 +96,11 @@ const Login = () => {
     }
     const signout = (e)=>{
         e.preventDefault();
-        setSignedIn(false);
+        setSignedInStatus(false);
     }
     const renderPage = ()=>{
         // console.log('signIn state', signedIn)
-        if (signedIn) {
+        if (signedInStatus) {
             return (
             <div className='login__container'>
                 <h4>Dear {firstName}, you are signed in with email: {email}</h4>
