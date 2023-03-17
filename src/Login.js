@@ -4,13 +4,17 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 // import {loginUser, createUser} from './Firebase'
 import './Login.css'
 
-const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
-const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
+// const signUpPath = process.env.REACT_APP_SERVER_URL_PROD+'/signup'
+// const signInPath = process.env.REACT_APP_SERVER_URL_PROD+'/signin'
+const signUpPath = process.env.REACT_APP_SERVER_URL_DEV+'/signup'
+const signInPath = process.env.REACT_APP_SERVER_URL_DEV+'/signin'
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
+    const [firstName, setFirstName] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const [signedIn, setSignedIn] = React.useState(false)
     const signIn = (e)=>{
         e.preventDefault();
 
@@ -33,7 +37,8 @@ const Login = () => {
             let code = res.status
             if (code===200){
                 console.log('you are signed in');
-                navigate('/');
+                setSignedIn(true)
+                // navigate('/');
             }
             else if (code===406)
             {
@@ -69,7 +74,9 @@ const Login = () => {
         .then(res=>{
             let code = res.status
             if (code===200){
-                navigate('/');
+                console.log('you are signed up');
+                setSignedIn(true)
+                // navigate('/');
             }
             else if (code===406)
             {
@@ -87,16 +94,28 @@ const Login = () => {
         .catch(error=>alert(error.message))
         
     }
-
-    return (
-        <div className="login__page">
-            <div className='login__logo'>
-                <Link to="/"><StorefrontIcon className="header__logoImage" fontSize="large" /></Link>
-                <Link to="/"><h2 className="header__logoTitle">eShop</h2></Link>
+    const signout = (e)=>{
+        e.preventDefault();
+        setSignedIn(false);
+    }
+    const renderPage = ()=>{
+        // console.log('signIn state', signedIn)
+        if (signedIn) {
+            return (
+            <div className='login__container'>
+                <h4>Dear {firstName}, you are signed in with email: {email}</h4>
+                <button className='login__newAccount' onClick={signout}>Sign Out</button>
             </div>
+            )
+        }
+        else {
+            return (
             <div className='login__container'>
                 <h1>Sign-in</h1>
-                <form className="form__login">
+                <form className="form__login">  
+                    <h5 className='firstName'>First Name</h5>
+                    <input type='text' value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+
                     <h5 className='email'>Email</h5>
                     <input type='text' value={email} onChange={(e)=>setEmail(e.target.value)}/>
 
@@ -108,6 +127,18 @@ const Login = () => {
                 <button className='login__newAccount' onClick={register}>Create New Account</button>
 
             </div>
+        )
+        }
+    }
+
+    return (
+        <div className="login__page">
+            <div className='login__logo'>
+                <Link to="/"><StorefrontIcon className="header__logoImage" fontSize="large" /></Link>
+                <Link to="/"><h2 className="header__logoTitle">eShop</h2></Link>
+            </div>
+            {renderPage()}
+            
         </div>
     )
   
